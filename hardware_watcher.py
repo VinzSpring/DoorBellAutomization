@@ -7,6 +7,9 @@ class HookedPin:
         self.hooked = False
         self.callback = callback
 
+    def send(self,delay):
+        pass
+
 class ImportWatcher:
 
     def __init__(self):
@@ -26,3 +29,7 @@ class ImportWatcher:
         for pin, hookedPin in self.hooked_pins:
             if GPIO.input(hookedPin.pin):
                 hookedPin.callback()
+
+    def send_to_pin(self,pin,delay):
+        self.hooked_pins[pin].send(delay)
+        pass
