@@ -13,7 +13,7 @@ class Engine:
 
     def __init__(self, door_bell_controls):
         self.door_bell_controls = door_bell_controls
-        self.on_ringed_notification = None
+        self.on_bell_rung_notification = None
         self.on_opened_door_notification = None
         self.open_always = False
         self.token_manager = TokenManager()
@@ -54,8 +54,8 @@ class Engine:
         pass
 
     def on_ring(self):
-        if self.on_ringed_notification:
-            self.on_ringed_notification()
+        if self.on_bell_rung_notification:
+            self.on_bell_rung_notification()
 
         if self.open_always:
             self.open_door()
@@ -69,8 +69,8 @@ class Engine:
             self.door_bell_controls.turn_lights_on()
         pass
 
-    def set_on_ringed_notification(self, callback):
-        self.on_ringed_notification = callback
+    def set_on_bell_rung_notification(self, callback):
+        self.on_bell_rung_notification = callback
         pass
 
     def set_on_opened_door_notification(self, callback):
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     dbc = DoorBellControls()
     engine = Engine(dbc)
     engine.set_on_opened_door_notification(lambda: print("NOTIFICATION: Opened the door"))
-    engine.set_on_ringed_notification(lambda: print("NOTIFICATION: It rings"))
+    engine.set_on_bell_rung_notification(lambda: print("NOTIFICATION: It rings"))
     engine.start()
 
     pw = "pass"

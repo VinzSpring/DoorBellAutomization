@@ -29,4 +29,4 @@ class TelegramBot:
 
     def notify_users(self):
         for admin in self.ADMINS:
-            self.bot.send_message(chat_id=admin, text="I'm sorry Dave I'm afraid I can't do that.")
+            self.bot.send_message(chat_id=admin, text="I'm sorry Dave I'm afraid I can't let you do that.")
