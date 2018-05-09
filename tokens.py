@@ -31,11 +31,12 @@ class TokenManager:
         return False
 
     def check_all_tokens(self):
-        delete_list = []
+        # delete_list = []
         for token, exp_date in self.tokens.items():
             if token_expired(exp_date):
-                delete_list.append(token)
+                # delete_list.append(token)
+                self.tokens.pop(token)
 
         # delete tokens from all tokens
-        for token in delete_list:
-            self.delete_token(token)
+        # for token in delete_list:
+            # self.delete_token(token)
