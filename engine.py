@@ -5,7 +5,7 @@ from door_bell_controls import DoorBellControls
 from tokens import TokenManager
 from time import sleep, time
 
-DEFAULT_TIME_FOR_RING_AND_OPEN = 3  # seconds
+DEFAULT_TIME_FOR_RING_AND_OPEN = 30  # seconds
 DEFAULT_EXPIRE_TIME_TOKENS = 20  # minutes
 
 
