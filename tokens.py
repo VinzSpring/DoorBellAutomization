@@ -1,3 +1,5 @@
+import random
+import string
 import time
 
 
@@ -5,10 +7,16 @@ def token_expired(expire_date):
     return expire_date < time.time()
 
 
+# generates a token of specified length "A3E6"
+def generate_token(length=4):
+    return random.choices(string.ascii_uppercase + string.digits, k=length)
+
+
 class TokenManager:
 
     def __init__(self):
         self.tokens = {}
+
 
     def insert_random_token(self, expire_time):
         random_token = "abc"
@@ -31,12 +39,7 @@ class TokenManager:
         return False
 
     def check_all_tokens(self):
-        # delete_list = []
         for token, exp_date in self.tokens.items():
             if token_expired(exp_date):
                 # delete_list.append(token)
                 self.tokens.pop(token)
-
-        # delete tokens from all tokens
-        # for token in delete_list:
-            # self.delete_token(token)

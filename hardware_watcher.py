@@ -30,6 +30,6 @@ class ImportWatcher:
             if GPIO.input(hookedPin.pin):
                 hookedPin.callback()
 
-    def send_to_pin(self,pin,delay):
+    def send_to_pin(self, pin, delay):
         self.hooked_pins[pin].send(delay)
         pass
