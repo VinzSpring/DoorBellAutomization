@@ -86,10 +86,10 @@ class Engine:
 
 
 # EXAMPLE PROGRAM
-def simulate_guest():
-    engine.activate_token("pass")
-    new_timer = Timer(5, lambda: dbc.on_ring())
-    new_timer.start()
+def simulate_guest(pw):
+    engine.activate_token(pw)
+    activate_to_ring_delay = Timer(5, lambda: dbc.on_ring())
+    activate_to_ring_delay.start()
 
 
 if __name__ == '__main__':
@@ -99,9 +99,10 @@ if __name__ == '__main__':
     engine.set_on_ringed_notification(lambda: print("NOTIFICATION: It rings"))
     engine.start()
 
-    engine.insert_token("pass")
-    timer = Timer(5, simulate_guest)
-    timer.start()
+    pw = "pass"
+    engine.insert_token(pw)
+    activate_after_token_delay = Timer(5, simulate_guest, args=[pw])
+    activate_after_token_delay.start()
     pass
 
 
