@@ -260,9 +260,7 @@ by exp-project-lbr.ulp</description>
 <pad name="39" x="56.63" y="25.23" drill="1" diameter="1.778"/>
 <pad name="40" x="56.63" y="27.77" drill="1" diameter="1.778"/>
 <text x="8.0525" y="22.3725" size="1.016" layer="21" font="vector" ratio="10">1</text>
-<hole x="3.5" y="3.5" drill="2.75"/>
 <hole x="3.5" y="26.5" drill="2.75"/>
-<hole x="61.5" y="3.5" drill="2.75"/>
 <hole x="61.5" y="26.5" drill="2.75"/>
 <wire x1="36.9" y1="0" x2="37.75" y2="0" width="0.254" layer="52"/>
 <wire x1="37.75" y1="0" x2="45.25" y2="0" width="0.254" layer="52"/>
@@ -2441,6 +2439,8 @@ Source: Motorola European Master Guide Pacge 3-59</description>
 <part name="PAD1" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="PAD2" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="PAD3" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="PAD4" library="wirepad" deviceset="2,15/1,0" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2469,8 +2469,10 @@ Source: Motorola European Master Guide Pacge 3-59</description>
 <instance part="GND5" gate="1" x="127" y="-5.08"/>
 <instance part="Q2" gate="G$1" x="91.44" y="2.54"/>
 <instance part="PAD1" gate="1" x="111.76" y="7.62" rot="R180"/>
-<instance part="PAD2" gate="1" x="147.32" y="33.02" rot="R180"/>
+<instance part="PAD2" gate="1" x="144.78" y="33.02" rot="R180"/>
 <instance part="PAD3" gate="1" x="144.78" y="63.5" rot="R180"/>
+<instance part="GND6" gate="1" x="149.86" y="10.16"/>
+<instance part="PAD4" gate="1" x="165.1" y="15.24" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -2529,6 +2531,12 @@ Source: Motorola European Master Guide Pacge 3-59</description>
 <wire x1="96.52" y1="-2.54" x2="127" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="127" y="-2.54"/>
 </segment>
+<segment>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="149.86" y1="12.7" x2="149.86" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="PAD4" gate="1" pin="P"/>
+<wire x1="149.86" y1="15.24" x2="162.56" y2="15.24" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="AUDIO_OUT1" class="0">
 <segment>
@@ -2565,19 +2573,10 @@ Source: Motorola European Master Guide Pacge 3-59</description>
 <wire x1="93.98" y1="27.94" x2="93.98" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="33.02" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="D3" gate="1" pin="C"/>
-<wire x1="111.76" y1="33.02" x2="144.78" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="33.02" x2="142.24" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="20.32" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
 <junction x="111.76" y="33.02"/>
 <pinref part="PAD2" gate="1" pin="P"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="GEN4/GPIO23"/>
-<wire x1="48.26" y1="58.42" x2="66.04" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="58.42" x2="66.04" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="66.04" y1="22.86" x2="83.82" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -2630,6 +2629,15 @@ Source: Motorola European Master Guide Pacge 3-59</description>
 <wire x1="96.52" y1="5.08" x2="96.52" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="7.62" x2="109.22" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="PAD1" gate="1" pin="P"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="Q1" gate="G$1" pin="G"/>
+<wire x1="83.82" y1="22.86" x2="50.8" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="22.86" x2="50.8" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="!CE0!/GPIO8"/>
+<wire x1="50.8" y1="48.26" x2="48.26" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
